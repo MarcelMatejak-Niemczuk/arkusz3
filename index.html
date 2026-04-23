@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Pola figur</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    
+<header>
+    <h2>Pola figur płaskich</h2>
+</header>
+
+<main>
+
+    <nav>
+        <h3>MENU</h3>
+        <ul>
+            <li><a href="index.html">Prostokąt i trójkąt</a></li>
+            <li><a href="kolo.html">Okrąg i koło</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <img src="1d.bmp" alt="Figura"><br><br>
+
+        <img src="1m.bmp" alt="Wybierz trójkąt" class="wybor" onclick="wybierz('trojkat')">
+        <img src="2m.bmp" alt="Wybierz prostokąt" class="wybor" onclick="wybierz('prostokat')">
+    </section>
+
+    <aside>
+        <h3>Pole prostokąta / pole trójkąta</h3>
+
+        <label for="a">Bok prostokąta / podstawa trójkąta:</label><br>
+        <input type="number" id="a"><br><br>
+
+        <label for="b">Drugi bok prostokąta / wysokość trójkąta:</label><br>
+        <input type="number" id="b"><br><br>
+
+        <button onclick="oblicz()">Oblicz</button>
+
+        <p id="wynik"></p>
+    </aside>
+
+</main>
+
+<footer>
+    <p>Autor: 000000000000000009</p>
+</footer>
+
+<script>
+let figura = "prostokat";
+
+function wybierz(f) {
+    figura = f;
+}
+
+function oblicz() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let wynik = document.getElementById("wynik");
+
+    if (isNaN(a) || isNaN(b)) {
+        wynik.innerHTML = "Wpisz poprawne dane";
+        return;
+    }
+
+    if (figura === "prostokat") {
+        wynik.innerHTML = "Pole prostokąta: " + (a * b);
+    } else {
+        wynik.innerHTML = "Pole trójkąta: " + (0.5 * a * b);
+    }
+}
+</script>
+
+</body>
+</html>
